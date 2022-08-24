@@ -8,10 +8,22 @@ import React, { useState } from 'react';
 const ControlledInputs = () => {
 
 const [name, setName] = useState('');
-const [email, setEmail] = useState('')
+const [email, setEmail] = useState('');
+const [people, setPeople] = useState([]);
+
   const handleSubmit =(e) =>{
     e.preventDefault();
-    console.log('hello');
+    if(name && email ){
+      const person= {id: new Date().getTime().toString(),  name, email}
+      setPeople([...people, person]);
+      console.log(person);
+      setName('');
+      setEmail('');
+    }
+    else{
+      return null
+    }
+    console.log(email,name);
   }
 const handleEvent =(e) =>{
  setEmail(e.target.value)
@@ -45,6 +57,16 @@ const handleEvent =(e) =>{
 
         <button type='submit'>add person</button>
       </form>
+
+      {people.map((person,index)=>{
+        const {id,name,email} = person
+        return(
+         <article className='item' key={id}>
+           <h4>{name}</h4>
+           <h4>{email}</h4>
+         </article>
+        )
+      })}
     </article>
     </>
   ) 
