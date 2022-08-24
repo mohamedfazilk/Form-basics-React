@@ -13,6 +13,10 @@ const [email, setEmail] = useState('')
     e.preventDefault();
     console.log('hello');
   }
+const handleEvent =(e) =>{
+ setEmail(e.target.value)
+}
+
   return(
     <>
     <article>
@@ -24,6 +28,7 @@ const [email, setEmail] = useState('')
            id='firstName'
            name='firstName'
            value={name}
+           onChange={(e)=>setName(e.target.value)}
            />
         </div>
 
@@ -33,6 +38,8 @@ const [email, setEmail] = useState('')
            id='email'
            name='email'
            value={email}
+           onChange={handleEvent}
+          
            />
         </div>
 
