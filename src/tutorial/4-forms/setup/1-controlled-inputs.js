@@ -6,6 +6,9 @@ import React, { useState } from 'react';
 // value, onChange
 
 const ControlledInputs = () => {
+
+const [name, setName] = useState('');
+const [email, setEmail] = useState('')
   const handleSubmit =(e) =>{
     e.preventDefault();
     console.log('hello');
@@ -17,12 +20,20 @@ const ControlledInputs = () => {
 
         <div className="form-control">
           <label htmlFor="firstName">Name: </label>
-          <input type="text" id='firstName' name='firstName' />
+          <input type="text"
+           id='firstName'
+           name='firstName'
+           value={name}
+           />
         </div>
 
         <div className="form-control">
           <label htmlFor="firstName">Email: </label>
-          <input type="email" id='email' name='email' />
+          <input type="email"
+           id='email'
+           name='email'
+           value={email}
+           />
         </div>
 
         <button type='submit'>add person</button>
